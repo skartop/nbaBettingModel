@@ -63,7 +63,7 @@ def predictGame(team1, team2, spread):
                             'date'], axis=1)
     dataset = dataset.to_numpy()
     predictions = model.predict_classes(dataset)
-    print('%s' % (team1.team_name if predictions[0] else team2.team_name))
+    return '%s %s %s \nPick: %s\n\n' % (team1.team_name, spread, team2.team_name, team1.team_name if predictions[0] else team2.team_name)
 
 
 def findTeam(team_name):
