@@ -46,8 +46,7 @@ def getDate(param):
     }
     return switcher.get(month)+day
 
-
-def PullMatchups(year, league):
+def pullMatchups(year, league):
     global urls
     matchups = []
     if(year == 2020):
@@ -71,7 +70,6 @@ def PullMatchups(year, league):
                     home_pts = el.contents[5].text.strip()
                     date = getDate(el.contents[0].text.strip())
                     matchups.append(Matchup(home_team, visitor_team, home_pts, visitor_pts, date))
-
     return matchups
 
 

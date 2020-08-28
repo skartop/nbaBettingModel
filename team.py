@@ -1,3 +1,6 @@
+import os
+
+
 class Team:
     def __init__(self, row):
         if row[0].text.strip()[-1] == '*':
@@ -46,5 +49,7 @@ class Team:
                   self.drb_pct + "," + \
                   self.opp_ft_rate + '\n'
 
-        with open('teams/%dteams.csv'%year, 'a') as fd:
+        writepath = "../data/teams/%d.csv" % year
+        mode = 'a' if os.path.exists(writepath) else 'w'
+        with open(writepath, mode) as fd:
             fd.write(csv_row)

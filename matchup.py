@@ -1,3 +1,6 @@
+import os
+
+
 class Matchup():
     def __init__(self, team1, team2, team1points=0, team2points=0, date=0, spread=0):
         self.visitor_team = team2
@@ -41,7 +44,9 @@ class Matchup():
                 return team
 
     def printMatchupToCSV(self, year):
-        with open('matchups/%dmatchups.csv' % year, 'a') as fd:
+        writepath = "../data/matchups/%d.csv" % year
+        mode = 'a' if os.path.exists(writepath) else 'w'
+        with open(writepath, mode) as fd:
             fd.write(self.getCSVString())
 
     def getCSVString(self):

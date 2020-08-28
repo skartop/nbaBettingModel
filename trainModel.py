@@ -5,13 +5,13 @@ from numpy import loadtxt
 from keras.models import Sequential
 from keras.layers import Dense
 
-dataset = pd.read_csv('matchups/2009matchups.csv', delimiter=',')
+dataset = pd.read_csv('data/matchups/2009matchups.csv', delimiter=',')
 
 for year in range(2010, 2019):
     print(year)
     if year == 2012:
         continue
-    yeardataset = pd.read_csv('matchups/%dmatchups.csv' % year, delimiter=',')
+    yeardataset = pd.read_csv('data/matchups/%dmatchups.csv' % year, delimiter=',')
     dataset = pd.concat([dataset, yeardataset])
 
 dataset = dataset.drop(['home_team',

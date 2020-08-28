@@ -4,8 +4,8 @@ import pandas as pd
 
 
 def updateSpreads(year):
-    spreadData = pd.read_csv("spreads/%dspreads.csv" % year)
-    matchupData = pd.read_csv("matchups/%dmatchups.csv" % year)
+    spreadData = pd.read_csv("../data/spreads/%d.csv" % year)
+    matchupData = pd.read_csv("../data/matchups/%d.csv" % year)
 
     for i in range(int(len(spreadData) / 2)):
         team1_spread = spreadData.iloc[(i * 2)]
@@ -52,9 +52,10 @@ def updateSpreads(year):
                 matchupData.loc[team1_matchup, 'home_points'].iloc[0]) + float(
                 matchupData.loc[team1_matchup, 'visitor_points'].iloc[0]) >= float(openingTotal) else 0
 
-    matchupData.to_csv("matchups/%dmatchups.csv" % year)
+    matchupData.to_csv("../data/matchups/%d.csv" % year)
 
 
 def convertXlsxToCsv(year):
-    read_file = pd.read_excel('spreads/%dspreads.xlsx' % year)
-    read_file.to_csv('spreads/%dspreads.csv' % year, index=None, header=True)
+    #2010 = nba odds 2009-10.xlsx
+    read_file = pd.read_excel('../data/spreads/xlsx/nba odds 20%s-%s.xlsx' % (str(year - 2001).zfill(2), str(year - 2000).zfill(2)))
+    read_file.to_csv('../data/spreads/%d.csv' % year, index=None, header=True)
