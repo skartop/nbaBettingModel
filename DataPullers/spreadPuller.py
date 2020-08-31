@@ -13,18 +13,18 @@ def updateSpreads(year):
         favorite = team1_spread if float(team1_spread['ML']) < 0 else team2_spread
         dog = team1_spread if float(team1_spread['ML']) > 0 else team2_spread
 
-        if favorite['Open'].lower() == 'pk':
-            openingTotal = dog['Open']
-            openingSpread = 0
-        elif dog['Open'].lower() == 'pk':
-            openingTotal = favorite['Open']
-            openingSpread = 0
-        elif float(favorite['Open']) < float(dog['Open']):
-            openingTotal = dog['Open']
-            openingSpread = favorite['Open']
+        if str(favorite['Close']).lower() == 'pk':
+            closingTotal = dog['Close']
+            closingSpread = 0
+        elif str(dog['Close']).lower() == 'pk':
+            closingTotal = favorite['Close']
+            closingSpread = 0
+        elif float(favorite['Close']) < float(dog['Close']):
+            closingTotal = dog['Close']
+            closingSpread = favorite['Close']
         else:
-            openingTotal = favorite['Open']
-            openingSpread = dog['Open']
+            closingTotal = favorite['Close']
+            closingSpread = dog['Close']
 
         date = team1_spread['Date']
         favorite_name = favorite['Team']
@@ -37,20 +37,20 @@ def updateSpreads(year):
 
         if len(matchupData.loc[team1_matchup, 'home_team']) > 0:
             if favorite_name.lower() in matchupData.loc[team1_matchup, 'home_team'].iloc[0]:
-                openingSpread = 0 - float(openingSpread)
+                closingSpread = 0 - float(closingSpread)
 
             matchupData.loc[team1_matchup, 'favorite'] = favorite_name
-            matchupData.loc[team1_matchup, 'spread'] = openingSpread
-            matchupData.loc[team1_matchup, 'total'] = openingTotal
-            if openingSpread != 0:
+            matchupData.loc[team1_matchup, 'spread'] = closingSpread
+            matchupData.loc[team1_matchup, 'total'] = closingTotal
+            if closingSpread != 0:
                 matchupData.loc[team1_matchup, 'cover'] = 1 if float(
-                    matchupData.loc[team1_matchup, 'winner'].iloc[0]) + float(openingSpread) >= 0 else 0
+                    matchupData.loc[team1_matchup, 'winner'].iloc[0]) + float(closingSpread) >= 0 else 0
             else:
                 matchupData.loc[team1_matchup, 'cover'] = 1 if float(
                     matchupData.loc[team1_matchup, 'winner'].iloc[0]) >= 0 else 0
             matchupData.loc[team1_matchup, 'over'] = 1 if float(
                 matchupData.loc[team1_matchup, 'home_points'].iloc[0]) + float(
-                matchupData.loc[team1_matchup, 'visitor_points'].iloc[0]) >= float(openingTotal) else 0
+                matchupData.loc[team1_matchup, 'visitor_points'].iloc[0]) >= float(closingTotal) else 0
 
     matchupData.to_csv("../data/matchups/%d.csv" % year)
 

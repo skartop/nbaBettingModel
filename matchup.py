@@ -9,24 +9,24 @@ class Matchup():
         self.visitor_points = team2points
         self.winner = int(team1points) - int(team2points)
 
-        self.age_diff = float(self.home_team.age) - float(self.visitor_team.age)
-        self.sos_diff = float(self.home_team.sos) - float(self.visitor_team.sos)
-        self.srs_diff = float(self.home_team.srs) - float(self.visitor_team.srs)
-        self.off_rtg_diff = float(self.home_team.off_rtg) - float(self.visitor_team.off_rtg)
-        self.def_rtg_diff = float(self.home_team.def_rtg) - float(self.visitor_team.def_rtg)
-        self.net_rtg_diff = float(self.home_team.net_rtg) - float(self.visitor_team.net_rtg)
-        self.pace_diff = float(self.home_team.pace) - float(self.visitor_team.pace)
-        self.fta_per_fga_pct_diff = float(self.home_team.fta_per_fga_pct) - float(self.visitor_team.fta_per_fga_pct)
-        self.fg3a_per_fga_pct_diff = float(self.home_team.fg3a_per_fga_pct) - float(self.visitor_team.fg3a_per_fga_pct)
-        self.ts_pct_diff = float(self.home_team.ts_pct) - float(self.visitor_team.ts_pct)
-        self.efg_pct_diff = float(self.home_team.efg_pct) - float(self.visitor_team.efg_pct)
-        self.tov_pct_diff = float(self.home_team.tov_pct) - float(self.visitor_team.tov_pct)
-        self.orb_pct_diff = float(self.home_team.orb_pct) - float(self.visitor_team.orb_pct)
-        self.ft_rate_diff = float(self.home_team.ft_rate) - float(self.visitor_team.ft_rate)
-        self.opp_efg_pct_diff = float(self.home_team.opp_efg_pct) - float(self.visitor_team.opp_efg_pct)
-        self.opp_tov_pct_diff = float(self.home_team.opp_tov_pct) - float(self.visitor_team.opp_tov_pct)
-        self.drb_pct_diff = float(self.home_team.drb_pct) - float(self.visitor_team.drb_pct)
-        self.opp_ft_rate_diff = float(self.home_team.opp_ft_rate) - float(self.visitor_team.opp_ft_rate)
+        self.age_diff = round((float(self.home_team.age) - float(self.visitor_team.age)), 3)
+        self.sos_diff = round((float(self.home_team.sos) - float(self.visitor_team.sos)), 3)
+        self.srs_diff = round((float(self.home_team.srs) - float(self.visitor_team.srs)), 3)
+        self.off_rtg_diff = round((float(self.home_team.off_rtg) - float(self.visitor_team.off_rtg)), 3)
+        self.def_rtg_diff = round((float(self.home_team.def_rtg) - float(self.visitor_team.def_rtg)), 3)
+        self.net_rtg_diff = round((float(self.home_team.net_rtg) - float(self.visitor_team.net_rtg)), 3)
+        self.pace_diff = round((float(self.home_team.pace) - float(self.visitor_team.pace)), 3)
+        self.fta_per_fga_pct_diff = round((float(self.home_team.fta_per_fga_pct) - float(self.visitor_team.fta_per_fga_pct)), 3)
+        self.fg3a_per_fga_pct_diff = round((float(self.home_team.fg3a_per_fga_pct) - float(self.visitor_team.fg3a_per_fga_pct)), 3)
+        self.ts_pct_diff = round((float(self.home_team.ts_pct) - float(self.visitor_team.ts_pct)), 3)
+        self.efg_pct_diff = round((float(self.home_team.efg_pct) - float(self.visitor_team.efg_pct)), 3)
+        self.tov_pct_diff = round((float(self.home_team.tov_pct) - float(self.visitor_team.tov_pct)), 3)
+        self.orb_pct_diff = round((float(self.home_team.orb_pct) - float(self.visitor_team.orb_pct)), 3)
+        self.ft_rate_diff = round((float(self.home_team.ft_rate) - float(self.visitor_team.ft_rate)), 3)
+        self.opp_efg_pct_diff = round((float(self.home_team.opp_efg_pct) - float(self.visitor_team.opp_efg_pct)), 3)
+        self.opp_tov_pct_diff = round((float(self.home_team.opp_tov_pct) - float(self.visitor_team.opp_tov_pct)), 3)
+        self.drb_pct_diff = round((float(self.home_team.drb_pct) - float(self.visitor_team.drb_pct)), 3)
+        self.opp_ft_rate_diff = round((float(self.home_team.opp_ft_rate) - float(self.visitor_team.opp_ft_rate)), 3)
 
         self.date = date
 
@@ -61,21 +61,21 @@ class Matchup():
                str(self.cover) + "," + \
                str(self.over) + ", " +\
                str(self.date) + "," + \
-               str(self.age_diff) + "," + \
-               str(self.sos_diff) + "," + \
-               str(self.srs_diff) + "," + \
-               str(self.off_rtg_diff) + "," + \
-               str(self.def_rtg_diff) + "," + \
-               str(self.net_rtg_diff) + "," + \
-               str(self.pace_diff) + "," + \
-               str(self.fta_per_fga_pct_diff) + "," + \
-               str(self.fg3a_per_fga_pct_diff) + "," + \
-               str(self.ts_pct_diff) + "," + \
-               str(self.efg_pct_diff) + "," + \
-               str(self.tov_pct_diff) + "," + \
-               str(self.orb_pct_diff) + "," + \
-               str(self.ft_rate_diff) + "," + \
-               str(self.opp_efg_pct_diff) + "," + \
-               str(self.opp_tov_pct_diff) + "," + \
-               str(self.drb_pct_diff) + "," + \
-               str(self.opp_ft_rate_diff) + '\n'
+               "{:.2f}".format(self.age_diff) + "," + \
+               "{:.2f}".format(self.sos_diff) + "," + \
+               "{:.2f}".format(self.srs_diff) + "," + \
+               "{:.2f}".format(self.off_rtg_diff) + "," + \
+               "{:.2f}".format(self.def_rtg_diff) + "," + \
+               "{:.2f}".format(self.net_rtg_diff) + "," + \
+               "{:.2f}".format(self.pace_diff) + "," + \
+               "{:.2f}".format(self.fta_per_fga_pct_diff) + "," + \
+               "{:.2f}".format(self.fg3a_per_fga_pct_diff) + "," + \
+               "{:.2f}".format(self.ts_pct_diff) + "," + \
+               "{:.2f}".format(self.efg_pct_diff) + "," + \
+               "{:.2f}".format(self.tov_pct_diff) + "," + \
+               "{:.2f}".format(self.orb_pct_diff) + "," + \
+               "{:.2f}".format(self.ft_rate_diff) + "," + \
+               "{:.2f}".format(self.opp_efg_pct_diff) + "," + \
+               "{:.2f}".format(self.opp_tov_pct_diff) + "," + \
+               "{:.2f}".format(self.drb_pct_diff) + "," + \
+               "{:.2f}".format(self.opp_ft_rate_diff) + '\n'

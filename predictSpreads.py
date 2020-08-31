@@ -14,7 +14,6 @@ def strip_first_col(fname, delimiter=None):
                continue
 
 def predictGame(team1, team2, spread):
-    global fd, predictions
     matchup = Matchup(team1, team2, spread=spread)
     os.remove('predictionMatchup.csv')
     header = "home_team," + \
@@ -62,8 +61,13 @@ def predictGame(team1, team2, spread):
                             'over',
                             'date'], axis=1)
     dataset = dataset.to_numpy()
-    predictions = model.predict_classes(dataset)
-    return '%s %s %s \nPick: %s\n\n' % (team1.team_name, spread, team2.team_name, team1.team_name if predictions[0] else team2.team_name)
+    predictions = model.predict_proba(dataset)
+    return ('%s %s %s \nPick: %s (%d' % (team1.team_name,
+                                             spread,
+                                             team2.team_name,
+                                             team1.team_name if predictions[0][0]*100>50 else team2.team_name,
+                                             predictions[0][0]*100 if predictions[0][0]*100>50 else 100-predictions[0][0]*100) +
+            "%)\n\n")
 
 
 def findTeam(team_name):

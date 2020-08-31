@@ -8,7 +8,7 @@ yearList = range(2008, 2021)
 
 for year in yearList:
     try:
-        os.remove("data/teams/%d.csv" % year)
+        os.remove("../data/teams/%d.csv" % year)
     except:
         pass
     league = PullTeamStats(year)
@@ -16,7 +16,7 @@ for year in yearList:
         team.printMatchupToCSV(year)
 
     try:
-        os.remove("data/matchups/%d.csv" % year)
+        os.remove("../data/matchups/%d.csv" % year)
     except:
         pass
     matchups = pullMatchups(year, league)

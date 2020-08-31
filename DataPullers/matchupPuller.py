@@ -15,6 +15,16 @@ urls = ['https://www.basketball-reference.com/leagues/NBA_%d_games-october.html'
         'https://www.basketball-reference.com/leagues/NBA_%d_games-august.html',
         'https://www.basketball-reference.com/leagues/NBA_%d_games-september.html']
 
+urls_2012 = [
+        'https://www.basketball-reference.com/leagues/NBA_%d_games-december.html',
+        'https://www.basketball-reference.com/leagues/NBA_%d_games-january.html',
+        'https://www.basketball-reference.com/leagues/NBA_%d_games-february.html',
+        'https://www.basketball-reference.com/leagues/NBA_%d_games-march.html',
+        'https://www.basketball-reference.com/leagues/NBA_%d_games-april.html',
+        'https://www.basketball-reference.com/leagues/NBA_%d_games-may.html',
+        'https://www.basketball-reference.com/leagues/NBA_%d_games-june.html']
+
+
 urls_2020 = ['https://www.basketball-reference.com/leagues/NBA_%d_games-october.html',
         'https://www.basketball-reference.com/leagues/NBA_%d_games-november.html',
         'https://www.basketball-reference.com/leagues/NBA_%d_games-december.html',
@@ -49,8 +59,10 @@ def getDate(param):
 def pullMatchups(year, league):
     global urls
     matchups = []
-    if(year == 2020):
+    if year == 2020:
         urls = urls_2020
+    elif year == 2012:
+        urls = urls_2012
     for url in urls:
         response = requests.get(url % year)
         soup = BeautifulSoup(response.text, "html.parser")

@@ -42,10 +42,10 @@ model.add(Dense(2, activation='selu'))
 model.add(Dense(1, activation='sigmoid'))
 
 # compile the keras model
-model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+model.compile(loss='binary_crossentropy', optimizer='adam')
 
 # fit the keras model on the dataset
-model.fit(X, y, epochs=300, batch_size=10)
+model.fit(X, y, epochs=500)
 
 # evaluate the keras model
 oldModel = keras.models.load_model('spreadpredictionmodel')
