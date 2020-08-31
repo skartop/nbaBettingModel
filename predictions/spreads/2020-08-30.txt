@@ -1,9 +1,15 @@
-Toronto Raptors -2 Boston Celtics 
-Pick: Boston Celtics (96)
 
-Los Angeles Clippers -9.5 Dallas Mavericks 
-Pick: Los Angeles Clippers (68)
+Toronto Raptors -2 Boston Celtics
+Pick: Boston Celtics
+W(112-94)
 
-Utah Jazz -2.5 Denver Nuggets 
-Pick: Denver Nuggets (86)
+Los Angeles Clippers -9.5 Dallas Mavericks
+Pick: Los Angeles Clippers
+W(111-97)
+
+Utah Jazz -2.5 Denver Nuggets
+Pick: Denver Nuggets
+W(119-107)
+
+3-0
 
