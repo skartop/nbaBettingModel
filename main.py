@@ -4,15 +4,15 @@ from datetime import datetime
 from predictSpreads import findTeam, predictGame
 
 predictions = []
-date = "2020-08-31"
-
-team1 = findTeam("heat")
-team2 = findTeam("bucks")
-
-predictions.append(predictGame(team1, team2, 5.5))
+date = "2020-09-04"
 
 team1 = findTeam("rockets")
-team2 = findTeam("thunder")
+team2 = findTeam("lakers")
+
+predictions.append(predictGame(team1, team2, 6))
+
+team1 = findTeam("bucks")
+team2 = findTeam("heat")
 
 predictions.append(predictGame(team1, team2, -5.5))
 
